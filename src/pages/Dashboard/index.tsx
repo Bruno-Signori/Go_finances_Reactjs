@@ -66,14 +66,14 @@ const Dashboard: React.FC = () => {
       <Header />
       <Container>
         <CardContainer>
-          <Card>
+          <Card income>
             <header>
               <p>Entradas</p>
               <img src={income} alt="Income" />
             </header>
-  <h1 data-testid="balance-income">{balance.income}</h1>
+          <h1 data-testid="balance-income">{balance.income}</h1>
           </Card>
-          <Card>
+          <Card outcome>
             <header>
               <p>Saídas</p>
               <img src={outcome} alt="Outcome" />

@@ -2,6 +2,8 @@ import styled from 'styled-components';
 
 interface CardProps {
   total?: boolean;
+  income?: boolean;
+  outcome?: boolean;
 }
 
 export const Container = styled.div`
@@ -24,10 +26,13 @@ export const CardContainer = styled.section`
 `;
 
 export const Card = styled.div`
-  background: ${({ total }: CardProps): string => (total ? '#FF872C' : '#fff')};
+  background: ${({ total }: CardProps): string => (total ? '#FF872C' : '#E5E1DD')};
   padding: 22px 32px;
   border-radius: 5px;
-  color: ${({ total }: CardProps): string => (total ? '#fff' : '#363F5F')};
+  color: ${({ total, income, outcome }: CardProps): string => (total ? 'white' : income ? '#12a454' : outcome ? '#e83f5b' : '#fff')};
+
+
+
 
   header {
     display: flex;
@@ -36,7 +41,9 @@ export const Card = styled.div`
 
     p {
       font-size: 16px;
+      font-weight: bold;
     }
+
   }
 
   h1 {
@@ -44,7 +51,10 @@ export const Card = styled.div`
     font-size: 36px;
     font-weight: normal;
     line-height: 54px;
+
+
   }
+
 `;
 
 export const TableContainer = styled.section`
@@ -56,30 +66,30 @@ export const TableContainer = styled.section`
 
     th {
       color: #969cb3;
-      font-weight: normal;
+      font-weight: bold;
       padding: 20px 32px;
       text-align: left;
-      font-size: 16px;
+      font-size: 18px;
       line-height: 24px;
     }
 
     td {
       padding: 20px 32px;
       border: 0;
-      background: #fff;
-      font-size: 16px;
+      background: #E5E1DD;
+      font-size: 18px;
       font-weight: normal;
-      color: #969cb3;
+      color: #363f5f;
 
-      &.title {
-        color: #363f5f;
-      }
 
       &.income {
+        font-weight: bold;
         color: #12a454;
       }
 
       &.outcome {
+        font-weight: bold;
+
         color: #e83f5b;
       }
     }
@@ -93,3 +103,5 @@ export const TableContainer = styled.section`
     }
   }
 `;
+ /* color: ${({ total, income, outcome }: CardProps): string => (total ? '#fff' : income ? '#' : outcome? 'blue' : 'blue') };
+*/
